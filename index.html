@@ -46,18 +46,37 @@
         <p>AI detects unusual patterns, prevents cyberattacks, and helps secure sensitive data from online threats.</p>
       </div>
     </section>
+<form onsubmit="sendData(event)">
+  <input type="text" name="email" placeholder="Enter your email" required>
+  <button type="submit">Submit</button>
+</form>
+
+<script>
+  async function sendData(e) {
+    e.preventDefault();
+    const data = { email: e.target.email.value };
+
+    await fetch("https://your-n8n-domain/webhook/test", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    });
+
+    alert("Data sent to n8n!");
+  }
+</script>
+
   </main>
 
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 | Made with ❤️ to explore Artificial Intelligence</p>
     </br>
-    <a href="io.html">Click Me</a>
-    <iframe src="https://kukudukuo.app.n8n.cloud/webhook-test/a05f27ae-0a78-4014-9eca-658db7e01757" width="100%" height="600"></iframe>
 
   </footer>
 </body>
 </html>
+
 
 
 
